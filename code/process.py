@@ -34,9 +34,9 @@ def adj_create(src, dst,label,num):
 
     return adj_x
 
-def acc(pred, labels):
+def acc(pred, labels, threshold=0.99):
     count = 0
-    a = torch.where(pred >0.99,1,0).type(torch.int32)
+    a = torch.where(pred >threshold,1,0).type(torch.int32)
     b = labels.type(torch.int32)
     for i in torch.eq(a,b):
         if i:
