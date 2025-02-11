@@ -40,6 +40,12 @@ The paper's results are stored in the `results/` directory.
 For evaluation, the output from running the above command can be compared to **Table 2** in  
 [*Predicting Drug Synergy and Discovering New Drug Combinations Based on a Graph Autoencoder and Convolutional Neural Network*](https://link.springer.com/article/10.1007/s12539-023-00558-y).
 
+We took the average of each metric of the last epoch of each fold from the following file:
+
+```
+https://github.com/JDACS4C-IMPROVE/GAECDS/blob/original-reproduce/results/deep_methods/GAECDS/cell/all.txt
+```
+
 
 ## References
 
