@@ -1,0 +1,47 @@
+[DEFAULT]
+
+[Preprocess]
+train_split_file = DrugCombo_split_0_train.txt
+val_split_file = DrugCombo_split_0_val.txt
+test_split_file = DrugCombo_split_0_test.txt
+data_format = .h5
+y_data_files = [["response.tsv"]]
+x_data_canc_files = [["cancer_gene_expression.tsv", ["Ensembl"]]]
+x_data_drug_files = [["drug_ecfp4_nbits300.tsv"]]
+output_dir = ./ml_data
+y_col_name = loewe
+drug_col_name = improve_chem_id
+drug_col_name_1 = improve_chem_id_1
+drug_col_name_2 = improve_chem_id_2
+
+[Train]
+data_format = .h5
+model_file_name = model
+model_file_format = .pt
+gae_model_file_name = gae_model
+mlp_model_file_name = mlp_model
+gae_epochs = 5
+epochs = 200
+batch_size = 128
+learning_rate = 0.00001
+mlp_learning_rate = 0.01
+gae_learning_rate = 0.00001
+drug_col_name_1 = improve_chem_id_1
+drug_col_name_2 = improve_chem_id_2
+y_col_name = label
+metric_type = classification
+loss = binary_cross_entropy
+early_stop_metric = None
+positive_threshold = 0.5
+
+[Infer]
+data_format = .h5
+model_file_name = model
+model_file_format = .pt
+gae_model_file_name = gae_model
+mlp_model_file_name = mlp_model
+drug_col_name_1 = improve_chem_id_1
+drug_col_name_2 = improve_chem_id_2
+y_col_name = label
+metric_type = classification
+positive_threshold = 0.5
