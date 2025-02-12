@@ -1,9 +1,9 @@
 [DEFAULT]
 
 [Preprocess]
-train_split_file = DrugCombo_split_0_train.txt
-val_split_file = DrugCombo_split_0_val.txt
-test_split_file = DrugCombo_split_0_test.txt
+train_split_file = DrugComb_split_0_train.txt
+val_split_file = DrugComb_split_0_val.txt
+test_split_file = DrugComb_split_0_test.txt
 data_format = .h5
 y_data_files = [["response.tsv"]]
 x_data_canc_files = [["cancer_gene_expression.tsv", ["Ensembl"]]]
@@ -33,6 +33,7 @@ metric_type = classification
 loss = binary_cross_entropy
 early_stop_metric = None
 positive_threshold = 0.5
+patience = 50
 
 [Infer]
 data_format = .h5
