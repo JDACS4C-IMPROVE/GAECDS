@@ -34,6 +34,7 @@ def adj_create(src, dst,label,num):
 
     return adj_x
 
+"""
 def acc(pred, labels, threshold=0.99):
     count = 0
     a = torch.where(pred >threshold,1,0).type(torch.int32)
@@ -44,6 +45,13 @@ def acc(pred, labels, threshold=0.99):
 
     acc_all = count / len(pred)
     return acc_all
+"""
+
+def acc(pred, labels, threshold=0.99):
+    a = torch.where(pred > threshold, 1, 0).type(torch.int32)
+    b = labels.type(torch.int32)
+    correct = (a == b).sum().item()  # Count correct predictions
+    return correct / len(pred)
 
 def print_pred(pred):
     pred_np1 = pred.detach().numpy()
